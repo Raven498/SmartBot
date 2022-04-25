@@ -35,4 +35,5 @@ public class Problem{
     public void setInput(int input){
         this.input = input;
     }
+
 }

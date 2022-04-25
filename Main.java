@@ -6,7 +6,7 @@ public class Main{
         for(int i = 0; i < problem.getThreshold(); i++){
             smartBot.runProblem();
         }
-        System.out.println(smartBot.getDataset());
+        System.out.println(smartBot.analyze());
     }
 
 }
