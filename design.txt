@@ -1,0 +1,34 @@
+Problem Description:
+A random number is chosen (either 2 or 4). There is an inital number. This initial number is continuously divided by either 2 or 4. The input will be the new number returned after division.
+
+Objective: Find the Initial number
+Pattern:
+  - factors: [2, 4]
+  - operation: /
+  - input: Input from Problem
+Input:
+  - 1st run: Initial number
+  - All other runs: Number returned from previous run
+
+Analysis Threshold: Default (5)
+
+SmartBot Algorithm (Assume the Pattern is already in its Solution Set):
+Repeat until the Analysis Threshold is reached:
+  Run the Problem
+  Collect the Input returned by the Problem
+  Add the Input to the Dataset
+For each Solution in the Solution Set:
+  For each Input in the Dataset:
+    Evaluate the Solution for the Input
+    At the second-to-last Input in the Dataset and the new Input equals the next Input?
+      Return this Solution
+    New Input equal to the next Input in the Dataset?
+      Move on to the next Input
+    Otherwise:
+      Move on to the next Solution
+Return null
+
+Problem Algorithm:
+When called, return an Input
+When called, return an Acknowledgement
+When called, return a Pattern
