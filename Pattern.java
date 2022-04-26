@@ -36,9 +36,14 @@ public class Pattern{
       this.input = input;
   }
 
-  public void setFinalFactor(){
+  public void setFinalFactor(int factor){
+    if(factor == -1){
       Random random = new Random();
-      int index = random.nextInt(factors.length);
-      finalFactor = factors[index];
+      int randIndex = random.nextInt(factors.length);
+      finalFactor = factors[randIndex];
+    }
+    else{
+      finalFactor = factor;
+    }
   }
 }

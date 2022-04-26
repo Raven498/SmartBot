@@ -4,8 +4,9 @@ import java.util.Random;
 public class Solution extends Pattern{
     private String objective;
 
-    public Solution(int[] factors, String operation, int initial) {
+    public Solution(int[] factors, String operation, int initial, String objective) {
         super(factors, operation, initial);
+        this.objective = objective;
     }
 
     public String getObjective(){
@@ -16,10 +17,10 @@ public class Solution extends Pattern{
         this.objective = objective;
     }
 
-    public int evaluate(int input){
+    public int evaluate(int input, int factor){
         int newInput = 0;
         if(Objects.equals(getOperation(), "/")){
-            newInput = input / getFinalFactor();
+            newInput = input / factor;
         }
         return newInput;
     }

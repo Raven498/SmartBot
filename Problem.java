@@ -9,7 +9,7 @@ public class Problem{
         this.objective = objective;
         this.pattern = pattern;
         this.threshold = threshold;
-        this.pattern.setFinalFactor();
+        this.pattern.setFinalFactor(-1);
         this.input = this.pattern.getInitial();
     }
 
@@ -36,4 +36,11 @@ public class Problem{
         this.input = input;
     }
 
+    public Solution reveal(){
+      int[] factors = pattern.getFactors();
+      String operation = pattern.getOperation();
+      int initial = pattern.getInitial();
+      Solution solution = new Solution(factors, operation, initial, objective);
+      return solution;
+    }
 }
