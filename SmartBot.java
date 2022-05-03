@@ -3,6 +3,7 @@ public class SmartBot{
     private ArrayList<Integer> dataset = new ArrayList<>();
     private ArrayList<Solution> solutionSet = new ArrayList<>();
     private Problem problem;
+    private String[] objectiveSet = {"find initial", "find next"};
 
     public SmartBot(Problem problem){
         this.problem = problem;
@@ -40,13 +41,22 @@ public class SmartBot{
     public int finish(Solution solution){
       String objective = solution.getObjective();
       int output = 0;
-      if(objective == "find initial"){
+      if(objective == objectiveSet[0]){
         if(solution.getOperation() == "/"){
-            output = dataset.get(0) * solution.getFinalFactor();
+          output = dataset.get(0) * solution.getFinalFactor();
+        }
+      }
+      else if(objective == objectiveSet[1]){
+        if(solution.getOperation() == "/"){
+          output = dataset.get(dataset.size() - 1) / solution.getFinalFactor();
         }
       }
       return output;
     }
+
+  public void clear(){
+    dataset.clear();
+  }
 
   public void addSolution(Solution solution){
     solutionSet.add(solution);
