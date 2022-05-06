@@ -5,12 +5,8 @@ public class Problem{
     private int input;
     private int threshold;
 
-    public Problem(String objective, Pattern pattern, int threshold){
-        this.objective = objective;
-        this.pattern = pattern;
+    public Problem(int threshold){
         this.threshold = threshold;
-        this.pattern.setFinalFactor(-1);
-        this.input = this.pattern.getInitial();
     }
 
     public String getObjective(){
@@ -36,11 +32,20 @@ public class Problem{
         this.input = input;
     }
 
+    public void setObjective(String objective){
+      this.objective = objective;
+    }
+
+    public void setPattern(Pattern pattern){
+      this.pattern = pattern;
+      this.pattern.setFinalFactor(-1);
+      this.input = this.pattern.getInitial();
+    }
+
     public Solution reveal(){
-      int[] factors = pattern.getFactors();
-      String operation = pattern.getOperation();
-      int initial = pattern.getInitial();
-      Solution solution = new Solution(factors, operation, initial, objective);
+      Solution solution = new Solution();
+      solution.setPattern(pattern);
+      solution.setObjective(objective);
       return solution;
     }
 }

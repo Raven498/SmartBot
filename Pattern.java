@@ -6,12 +6,6 @@ public class Pattern{
   private int input;
   private int initial;
 
-  public Pattern(int[] factors, String operation, int initial){
-      this.factors = factors;
-      this.operation = operation;
-      this.initial = initial;
-  }
-
   public int[] getFactors(){
       return factors;
   }
@@ -34,6 +28,18 @@ public class Pattern{
 
   public void setInput(int input){
       this.input = input;
+  }
+
+  public void setFactors(int[] factors){
+    this.factors = factors;
+  }
+
+  public void setOperation(String operation){
+    this.operation = operation;
+  }
+
+  public void setInitial(int initial){
+    this.initial = initial;
   }
 
   public void setFinalFactor(int factor){
